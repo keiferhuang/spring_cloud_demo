@@ -1,0 +1,134 @@
+# 端口号
+server:
+  port: 1111
+#安全
+security:
+  # 开启基本安全认证
+  basic:
+    enabled: true
+  # 设置用户名密码
+  user:
+    name: admin
+    password: admin
+
+# 服务注册相关配置
+eureka:
+  # 服务实例主机名
+  instance:
+    hostname: localhost
+  # 服务提供者配置
+  client:
+    # 不进行注册（当服务注册中心是单点而非高考用时的配置方式）
+    registerWithEureka: false
+    # 不获取注册信息（当服务注册中心是单点而非高考用时的配置方式）
+    fetchRegistry: false
+    # 服务注册中心地址
+    serviceUrl:
+      defaultZone: http://${security.user.name}:${security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
+
+
+##高可用eureka_server配置
+---
+## 高可用节点1的配置
+#server:
+#  port: 8771
+#spring:
+#  # 节点1的标签
+#  profiles: peer1
+#  # 服务名保持一致
+#  application:
+#    name: eureka_server
+#
+## 安全认证
+#security:
+#  # 开启基本安全认证
+#  basic:
+#    enabled: true
+#  # 设置用户名密码
+#  user:
+#    name: admin
+#    password: admin
+#
+#eureka:
+#  instance:
+#    hostname: peer1
+#  client:
+#    # 进行注册（高可用配置、默认配置）
+#    # registerWithEureka: true
+#    # 获取注册信息（高可用配置、默认配置）
+#    # fetchRegistry: true
+#    serviceUrl:
+##      # 节点1向节点2/3进行服务注册
+##      defaultZone: http://peer2:8772/eureka/,http://peer3:8773/eureka/
+#      # 安全认证的配置
+#      defaultZone: http://admin:admin@peer2:8772/eureka/,http://123:123@peer3:8773/eureka/
+#
+#---
+## 高可用节点2的配置
+#server:
+#  port: 8772
+#spring:
+#  # 节点2的标签
+#  profiles: peer2
+#  # 服务名保持一致
+#  application:
+#    name: eureka_server
+#
+# # 安全认证
+#security:
+#  # 开启基本安全认证
+#  basic:
+#    enabled: true
+#   # 设置用户名密码
+#  user:
+#    name: admin
+#    password: admin
+#
+#eureka:
+#  instance:
+#    hostname: peer2
+#  client:
+#    # 进行注册（高可用配置、默认配置）
+#    # registerWithEureka: true
+#    # 获取注册信息（高可用配置、默认配置）
+#    # fetchRegistry: true
+#    serviceUrl:
+##      # 节点2向节点1/3进行服务注册
+##      defaultZone: http://peer1:8771/eureka/,http://peer3:8773/eureka/
+#      # 安全认证的配置
+#            defaultZone: http://admin:admin@peer1:8771/eureka/,http://123:123@peer3:8773/eureka/
+#
+#---
+## 高可用节点3的配置
+#server:
+#  port: 8773
+#spring:
+#  # 节点3的标签
+#  profiles: peer3
+#  # 服务名保持一致
+#  application:
+#    name: eureka_server
+#
+## 安全认证
+#security:
+#  # 开启基本安全认证
+#  basic:
+#    enabled: true
+#  # 设置用户名密码
+#  user:
+#    name: 123
+#    password: 123
+#
+#eureka:
+#  instance:
+#    hostname: peer3
+#  client:
+#    # 进行注册（高可用配置、默认配置）
+#    # registerWithEureka: true
+#    # 获取注册信息（高可用配置、默认配置）
+#    # fetchRegistry: true
+#    serviceUrl:
+##      # 节点3向节点1/2进行服务注册
+##      defaultZone: http://peer1:8771/eureka/,http://peer2:8772/eureka/
+## 安全认证的配置
+#      defaultZone: http://admin:admin@peer1:8771/eureka/,http://admin:admin@peer2:8772/eureka/
