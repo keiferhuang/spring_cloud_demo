@@ -10,7 +10,6 @@ security:
   user:
     name: admin
     password: admin
-
 # 服务注册相关配置
 eureka:
   # 服务实例主机名
