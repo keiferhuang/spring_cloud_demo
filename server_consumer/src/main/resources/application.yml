@@ -6,6 +6,9 @@ spring:
     # 服务名，即serviceId
     name: server_consumer
 eureka:
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 5000
   client:
     serviceUrl:
       # 安全认证的服务注册中心地址
@@ -13,7 +16,7 @@ eureka:
 
 feign:
   hystrix:
-    enable: true
+    enabled: true
 
 
 #server-provider:
@@ -24,10 +27,10 @@ feign:
 #    ReadTimeout: 2000
 #    OkToRetryOnAllOperations: true
 
-#hystrix:
-#  command:
-#    default:
-#      execution:
-#        isolation:
-#          thread:
-#            timeoutInMilliseconds: 2001
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2001

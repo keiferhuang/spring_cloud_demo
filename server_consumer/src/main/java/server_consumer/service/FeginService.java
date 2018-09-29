@@ -3,7 +3,6 @@ package server_consumer.service;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import server_consumer.config.DisableHystrixConfiguration;
 import server_consumer.service.backImpl.FeginFallBack;
 
 /**

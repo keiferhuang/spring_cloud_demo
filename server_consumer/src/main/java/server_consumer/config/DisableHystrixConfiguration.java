@@ -14,12 +14,13 @@ import org.springframework.context.annotation.Scope;
 /**
  *关闭Hystrix配置类
  */
-@Configuration
-public class DisableHystrixConfiguration {
-
-    @Bean
-    @Scope("prototype")
-    public Feign.Builder feignBuilder(){
-        return Feign.builder();
-    }
-}
+//开启后无法通过fallback的方法来进行服务降级
+//@Configuration
+//public class DisableHystrixConfiguration {
+//
+//    @Bean
+//    @Scope("prototype")
+//    public Feign.Builder feignBuilder(){
+//        return Feign.builder();
+//    }
+//}

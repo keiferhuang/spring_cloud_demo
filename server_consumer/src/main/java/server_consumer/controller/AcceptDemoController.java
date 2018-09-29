@@ -19,11 +19,11 @@ public class AcceptDemoController {
 
 
     @Autowired
-    private FeginService feginService;
+    private FeginService service;
 
     @RequestMapping(value = "/hello/{name}")
     @ResponseBody
     public  String helloAgain(@PathVariable(value = "name") String name){
-        return feginService.demoHiWorld(name);
+        return service.demoHiWorld(name);
     }
 }
