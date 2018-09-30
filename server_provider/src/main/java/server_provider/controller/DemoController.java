@@ -33,10 +33,13 @@ public class DemoController {
 
     @Value("${server.port}")
     String port;
+    @Value("${wow.axl}")
+    private String wow;
+    @Value("${soul}")
+    private String dz;
 
     @Autowired
     private DiscoveryClient discoveryClient;
-
     @RequestMapping(value = "/hello/{name}")
     @ResponseBody
     public String hello(@PathVariable(value = "name") String name) throws Exception{
@@ -50,6 +53,6 @@ public class DemoController {
                 System.out.println(serviceInstance.getHost() + "," + serviceInstance.getPort() + "," + serviceInstance.getServiceId());
             }
         }
-        return "hello World ~"+"Im form" + port +name ;
+        return "hello World ~"+"Im form" + port +name + dz + wow ;
     }
 }

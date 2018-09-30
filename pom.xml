@@ -13,6 +13,7 @@
         <module>server_provider</module>
         <module>server_consumer</module>
         <module>server_config</module>
+        <module>client_config</module>
     </modules>
 
     <!--Spring Boot配置-->

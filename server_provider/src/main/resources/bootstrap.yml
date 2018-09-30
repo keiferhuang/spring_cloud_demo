@@ -5,6 +5,11 @@ server:
 spring:
   application:
     name: server-provider
+  cloud:
+      config:
+        label: master
+        profile: prod
+        uri: http://localhost:8888/
 # 服务注册与发现相关配置
 eureka:
   client:

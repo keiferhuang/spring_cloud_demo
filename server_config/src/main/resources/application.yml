@@ -1,0 +1,15 @@
+# 服务端口号
+server:
+  port: 8888
+# 服务名称，即serviceId
+spring:
+  application:
+    name: config-server
+  cloud:
+      config:
+        server:
+          git:
+            uri: https://github.com/keiferhuang/springcloud_configserver.git
+        label: master
+
+
